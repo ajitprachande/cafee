@@ -45,7 +45,7 @@
       <div class="section_container">
         <div class="hero_container">
           <div class="text_section">
-            <h2>Fuel Your Passion</h2>
+            <h2 class="typewriter">Fuel Your Passion</h2>
             <h3>Discover the Magic in Every Cup</h3>
             <p>
               Welcome to our coffee paradise, where every bean tells a story and
