@@ -97,110 +97,109 @@
 }
 </style>
 </head>
-<body>
-<div class="table_body">
+	<body>
+	<div class="table_body">
 
-<div class="table_head"><h1>Welcome To Cafee Contact Report Admin - <?php echo $_SESSION['AdminLoginId']; ?></h1>
-<form method="post">
-<button class="button" name="logout">Logout</button>
-</form>
+		<div class="table_head"><h1>Welcome To Cafee Contact Report Admin - <?php echo $_SESSION['AdminLoginId']; ?></h1>
+				<form method="post">
+				<button class="button" name="logout">Logout</button>
+				</form>
+		</div>
+			<?php
+				if(isset($_POST['logout']))
+				{
+					session_destroy();
+					header("location:admin_login.php");	
+				}
+			?>
+			<?php 
+				if($flag==1)
+				{
+			?>		
+					<div class="deleted_msg" >Data Deleted Successfully</div>
+			<?php
+				}
+				else if($flag==2)
+				{
+			?>
+				<div class="not_delete_msg">Deletion Failed</div>
+			<?php
+				}	
+			?>
 
-</div>
-<?php
-if(isset($_POST['logout']))
-{
-	session_destroy();
-	header("location:admin_login.php");	
-}
-?>
-<?php 
-    if($flag==1)
-	{
-?>		
-         <div class="deleted_msg" >Data Deleted Successfully</div>
-<?php
-	}
-	else if($flag==2)
-	{
-?>
-	<div class="not_delete_msg">Deletion Failed</div>
-<?php
-	}	
-?>
+			<?php
+				//echo   $_SESSION['edit_id'];
+			?>
 
-<?php
-      //echo   $_SESSION['edit_id'];
-?>
-
-<table border="0" cellspacing="25" cellpadding="1">
-  <thead>
-  <th>Sr.No</th>
-  <th>Full_Name</th>
-  <th>Email Id</th>
-  <th>Mobile No</th>
-  <th>Password</th>
-  <th>Textarea</th>
-  <th>Date</th>
-  <th>Time</th>
-  <th>Action</th>
-  <th>Action</th>
-  </thead>
-  
-  <tbody>
-     <?php
-	     $response_data = array();
-		 $response_data = $db->get_user_data();
-		 
-		  //print_r($response_data);
-		 
-	       if(!empty($response_data))
-	       {
-		     $row = 0;
-		     foreach($response_data as $record)
-		     {
-			    $res_id       = $response_data[$row][0];
-				$res_name     = $response_data[$row][1];
-				$res_email    = $response_data[$row][2];
-				$res_number   = $response_data[$row][3];
-				$res_password = $response_data[$row][4];
-				$res_textarea = $response_data[$row][5];
-				$res_date     = $response_data[$row][6];
-				$res_time     = $response_data[$row][7];
-		?>
-		
-    <tr>
-     <td><?php echo $row+1; ?></td>
-	 <td><?php echo $res_name; ?> </td>
-	 <td><?php echo $res_email; ?> </td>
-	 <td><?php echo $res_number; ?> </td>
-	 <td><?php echo $res_password; ?> </td>
-	 <td><?php echo $res_textarea; ?> </td>
-	 <td><?php echo $res_date; ?> </td>                                 
-	 <td><?php echo $res_time; ?> </td>
-	 <td>
-	     <a href="table.php?delete_id=<?php echo $res_id;  ?>">Delete</a>
-	 </td>
-	 <td> 
-	     <a href="editpage.php?edit_id=<?php echo $res_id; ?>">Edit</a>
-	 
-	 </td>
-  </tr>
-		
-		<?php
-				$row++;
-		     }     
-	       }
-	        else
-	       {
-		       echo"NO DATA FOUND";
-	       } 
-	 
-	 ?>
-  </tbody>
- 
-</table>
- </div>
-  <!-- footer section -->
-  <?PHP  include("partial/footer.php"); ?>
-</body>
+		<table border="0" cellspacing="25" cellpadding="1">
+			<thead>
+			<th>Sr.No</th>
+			<th>Full_Name</th>
+			<th>Email Id</th>
+			<th>Mobile No</th>
+			<th>Password</th>
+			<th>Textarea</th>
+			<th>Date</th>
+			<th>Time</th>
+			<th>Action</th>
+			<th>Action</th>
+			</thead>
+			
+			<tbody>
+				<?php
+					$response_data = array();
+					$response_data = $db->get_user_data();
+					
+					//print_r($response_data);
+					
+					if(!empty($response_data))
+					{
+						$row = 0;
+						foreach($response_data as $record)
+						{
+							$res_id       = $response_data[$row][0];
+							$res_name     = $response_data[$row][1];
+							$res_email    = $response_data[$row][2];
+							$res_number   = $response_data[$row][3];
+							$res_password = $response_data[$row][4];
+							$res_textarea = $response_data[$row][5];
+							$res_date     = $response_data[$row][6];
+							$res_time     = $response_data[$row][7];
+					?>
+					
+				<tr>
+				<td><?php echo $row+1; ?></td>
+				<td><?php echo $res_name; ?> </td>
+				<td><?php echo $res_email; ?> </td>
+				<td><?php echo $res_number; ?> </td>
+				<td><?php echo $res_password; ?> </td>
+				<td><?php echo $res_textarea; ?> </td>
+				<td><?php echo $res_date; ?> </td>                                 
+				<td><?php echo $res_time; ?> </td>
+				<td>
+					<a href="table.php?delete_id=<?php echo $res_id;  ?>">Delete</a>
+				</td>
+				<td> 
+					<a href="editpage.php?edit_id=<?php echo $res_id; ?>">Edit</a>
+				
+				</td>
+			</tr>
+					
+					<?php
+							$row++;
+						}     
+					}
+						else
+					{
+						echo"NO DATA FOUND";
+					} 
+				
+				?>
+			</tbody>
+	
+		</table>
+	</div>
+	<!-- footer section -->
+		<?PHP  include("partial/footer.php"); ?>
+	</body>
 </html>

@@ -100,19 +100,20 @@ table tr td{
 	margin-bottom:25px;
     border-radius: 15px;
 }
-
 /* menu section */
 .header{
     height: 11%;
 }
 
-
+/* add admin page css code start here */
+/* add admin page css code end here */
 /* CSS for MAIN CONTENT */
 .main-content{
     background-color: #f1f2f6;
     padding: 3% 0%;
     margin-top: 5%; 
-    height: 1000px;
+    /* height: 1000px; */
+    min-height:800px;
 }
 .col-4{
     text-align: center;

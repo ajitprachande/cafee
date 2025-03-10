@@ -119,6 +119,7 @@
                 else{
                     //don't upload the image and set the image name value as blank
                     $image_name = "";
+                    
                 }
 
 
