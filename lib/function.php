@@ -11,7 +11,12 @@ class db_functions
 	function __construct()
 	{
 		//Database connection
-		$this->con = new mysqli("localhost","root","","bachelor's_cafee");
+		$this->con = mysqli_connect("localhost","root","","bachelor's_cafee");
+		if(mysqli_connect_error())
+	{
+		echo "cannot connect";
+	}
+	
 	}
 	
 	function registration_data($var_name, $var_email, $var_number,$var_password,$var_textarea)

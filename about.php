@@ -1,17 +1,4 @@
- <html>
- <head>
- <title>
- </title>
- <link rel="stylesheet" type="text/css" href="css/style.css" />
- <style>
- .about_us {
-    background: var(--light-gray-color);
-    padding: 100px 40px 130px;
-	min-height:850px;
-}
- </style>
- </head>
- <body>
+<?PHP  include("partial/menu.php"); ?>
  <!-- About Us Section -->
  
     <section class="about_us" id="about">
@@ -35,5 +22,7 @@
         </div>
       </div>
     </section>
+     <!-- footer section -->
+ <?PHP  include("partial/footer.php"); ?>
 </body>
 <html>

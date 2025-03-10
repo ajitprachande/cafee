@@ -1,3 +1,5 @@
+
+ <?PHP  include("partial/menu.php"); ?>
 <?php
       require_once('lib/function.php');
        $db = new db_functions();
@@ -73,6 +75,34 @@
         <?php		
 	        	}			
 	    ?>
+      <!-- menu section start -->
+      <header>
+      <nav>
+        <div class="nav_logo">
+          <a href="#">
+            <img src="images/logo.webp" alt="Coffee Logo" />
+            <h2> Bachelore's Cafee</h2>
+          </a>
+        </div>
+
+        <input type="checkbox" id="click" />
+        <label for="click">
+          <i class="menu_btn bx bx-menu"></i>
+          <i class="close_btn bx bx-x"></i>
+        </label>
+
+        <ul>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="about.php">About</a></li>
+          <li><a href="services.php">Services</a></li>
+          <li><a href="why.php">Why Us</a></li>
+          <li><a href="gallery.php">Gallery</a></li>
+          <li><a href="admin_login.php">Report</a></li>
+        </ul>
+      </nav>
+    </header>
+
+       <!-- menu section end -->
 	  
       <div class="section_container">
         <div class="contact_container">
@@ -164,5 +194,7 @@
         </div>
       </div>
     </section>
+     <!-- footer section -->
+ <?PHP  include("partial/footer.php"); ?>
 </body>
 </html>

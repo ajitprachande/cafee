@@ -1,7 +1,10 @@
+
+ <?PHP  include("partial/menu.php"); ?>
 <?php
+  session_start();
   require_once('lib/function.php');
   $db = new db_functions();
-  
+	
   //logout code
   if(isset($_GET['logout']))
   {
@@ -12,6 +15,7 @@
   $flag = 0;
   if(isset($_POST['submit_btn']))
   {
+	
     $var_number = $_POST['number'];
 	$var_password = $_POST['password'];
 	
@@ -54,9 +58,13 @@
 <html>
 <head>
 <title>Sign In</title> 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 
 <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+
 
 <style>
 .contact {
@@ -68,6 +76,33 @@
 </style>
 </head>
 <body>
+	<!-- menu section start -->
+	<header>
+      <nav>
+        <div class="nav_logo">
+          <a href="#">
+            <img src="images/logo.webp" alt="Coffee Logo" />
+            <h2> Bachelore's Cafee</h2>
+          </a>
+        </div>
+
+        <input type="checkbox" id="click" />
+        <label for="click">
+          <i class="menu_btn bx bx-menu"></i>
+          <i class="close_btn bx bx-x"></i>
+        </label>
+
+        <ul>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="about.php">About</a></li>
+          <li><a href="services.php">Services</a></li>
+          <li><a href="why.php">Why Us</a></li>
+          <li><a href="gallery.php">Gallery</a></li>
+          <li><a href="admin_login.php">Report</a></li>
+        </ul>
+      </nav>
+    </header>
+<!-- menu section end -->
 		
  <!-- Contact Section -->
     <section class="contact" id="contact">
@@ -92,6 +127,7 @@
         <div class="contact_container">
           <div class="contact_form">
             <form action="login.php"  method="post">
+			
               <div class="field">
                 <label for="number">Your Number</label>
                 <input
@@ -102,17 +138,19 @@
                   required
                 />
               </div>
-			  <div class="field">
-                <label for="password">Your password</label>
-                <input
-                  type="password"
-				  name="password"
-                  id="password"
-                  placeholder="Your password"
-                  required
-                />
-			
-              </div>
+			  <div class="field pass">
+                 <label for="password">Your password</label>
+					<input
+					type="password"
+					name="password"
+					id="password"
+					placeholder="Your password"
+					required
+					/>
+					<!-- <i class="fa-solid fa-eye"></i>
+					<i class="fa-solid fa-eye-slash hide"></i>  -->
+				  	<!-- <img src="images/hide.png"> -->
+			    </div>
 			  
 			  <?php 
 			  function generateRandomString($length = 4)
@@ -154,8 +192,10 @@
               </div>
               <button class="button" name="submit_btn" id="submit_btn">Log In</button>
             </form>
+			
           </div>
-		  
+		</div>
+	  </div>  
 		<script type="text/javascript">
 	       $(document).ready(function(){
 			  
@@ -177,10 +217,7 @@
 					 
 				 }
 			   });			  
-		          
-		
 	      });
 	   </script>
-	  
 </body>
 </html>

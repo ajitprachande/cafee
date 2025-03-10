@@ -1,3 +1,4 @@
+<?PHP  include("partial/menu.php"); ?>
 <?php
   require_once('lib/function.php');
   $db = new db_functions();
@@ -8,7 +9,7 @@ if(isset($_POST['submit_btn']))
     $var_name = $_POST['name'];
     $var_email = $_POST['email'];
     $var_number = $_POST['number'];
-	$var_password = $_POST['password'];
+	  $var_password = $_POST['password'];
     $var_textarea = $_POST['textarea'];                                                    
     
     if($db->registration_data($var_name, $var_email, $var_number, $var_password, $var_textarea)) 
@@ -54,8 +55,8 @@ if(isset($_POST['submit_btn']))
 	    ?>
 	  
 	  
-	  
-      <div class="section_container">
+	  <form action="contact.php" method="post">
+	        <div class="section_container">
         <div class="contact_container">
           <div class="contact_form">
             <form action="contact.php"  method="post">
@@ -104,7 +105,7 @@ if(isset($_POST['submit_btn']))
                 ></textarea>
               </div>
 
-              <button class="button" name="submit_btn" id="submit_btn">Submit</button>
+              <button type="submit" class="button" name="submit_btn" id="submit_btn">Submit</button>
             </form>
           </div>
 
@@ -121,7 +122,7 @@ if(isset($_POST['submit_btn']))
               <i class="bx bxs-envelope"></i>
               <div class="contact_details">
                 <h3>General Enquries</h3>
-                <p>coffeeshop@xyz.com</p>
+                <p>bachelores_cafee@gmail.com</p>
               </div>
             </div>
             <div class="contact_items">
@@ -146,9 +147,10 @@ if(isset($_POST['submit_btn']))
 	<script type="text/javascript">
 	$(document).ready(function(){
 		
-		
 	});
 	</script>
+	  
+	  </form>
 	
 </body>
 </html>

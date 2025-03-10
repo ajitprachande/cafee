@@ -1,9 +1,7 @@
-<html>
-<head>
-<title></title> 
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-</head>
-<body>
+
+ <?PHP  include("partial/menu.php"); ?>
+
+   <!-- menu section end -->
  <!-- Gallery Section -->
     <section class="gallery" id="gallery">
       <h2 class="section_title">Gallery</h2>
@@ -30,5 +28,7 @@
         </div>
       </div>
     </section>
+     <!-- footer section -->
+ <?PHP  include("partial/footer.php"); ?>
 </body>
 </html>	

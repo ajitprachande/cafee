@@ -1,3 +1,11 @@
+<?PHP  include("partial/menu.php"); ?>
+<?php
+     session_start();
+	 if(!isset($_SESSION['AdminLoginId']))
+	 {
+		 header("location: admin_login.php");
+	 }
+?>
 <?php
       require_once('lib/function.php');
        $db = new db_functions();
@@ -22,7 +30,6 @@
 <html>
 <head>
 <title>
-Cafee--Report
 </title>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
@@ -55,33 +62,57 @@ Cafee--Report
 	margin-top:20px;
 	border-radius:5px;
 }
-.table_head
-{
-	height:80px;
-	width:100%;
-	background: var(--light-gray-color);
-	font-family: "Poppins", sans-serif;
-	padding:25px;
-	margin:auto;
-	display:inline-table;
-	text-align:center;
-	border:1px solid;
-	margin-bottom:10px;
-}
 .table_body{
 	background: var(--light-gray-color);
+	margin-top: 2%;
 	min-height:800px;
-	border:1px solid;
-		
+	border:1px solid;		
 }
-
+.table_head
+{
+	width: 100%;
+	height: 80px;
+	display:flex; 
+	justify-content: space-between;
+	align-items: center;
+	border:1px solid;
+	margin-bottom:10px;	
+}
+.table_head h1{
+	text-align: center;
+	margin-left: 17%;
+}
+.table_head button{
+	font-size: 18px;
+	font-weight: 550;
+	padding: 8px 13px;
+	border-radius: 10px;
+	margin-right: 10px;
+	border: 1px solid #f2f2f2;
+}
+.table_head button:hover{
+	color: black;
+	background-color: #f3961c;
+	border-radius: 10px;
+}
 </style>
 </head>
 <body>
 <div class="table_body">
 
-<div class="table_head"><h1>~~Cafee Contact Report~~</h1></div>
+<div class="table_head"><h1>Welcome To Cafee Contact Report Admin - <?php echo $_SESSION['AdminLoginId']; ?></h1>
+<form method="post">
+<button class="button" name="logout">Logout</button>
+</form>
 
+</div>
+<?php
+if(isset($_POST['logout']))
+{
+	session_destroy();
+	header("location:admin_login.php");	
+}
+?>
 <?php 
     if($flag==1)
 	{
@@ -99,8 +130,6 @@ Cafee--Report
 
 <?php
       //echo   $_SESSION['edit_id'];
-
-
 ?>
 
 <table border="0" cellspacing="25" cellpadding="1">
@@ -171,5 +200,7 @@ Cafee--Report
  
 </table>
  </div>
+  <!-- footer section -->
+  <?PHP  include("partial/footer.php"); ?>
 </body>
 </html>

@@ -1,16 +1,6 @@
-<html>
-<head>
-<title></title> 
-<link rel="stylesheet" type="text/css" href="css/style.css" />
- <style>
- .why_us {
-    background: var(--light-gray-color);
-    padding: 100px 40px 130px;
-	min-height:850px;
-}
- </style>
-</head>
-<body>
+
+ <?PHP  include("partial/menu.php"); ?>
+<!-- menu section end -->
  <!-- Why Us Section -->
     <section class="why_us" id="why">
       <h2 class="section_title">Why Us?</h2>
@@ -50,5 +40,7 @@
         </div>
       </div>
     </section>
+     <!-- footer section -->
+ <?PHP  include("partial/footer.php"); ?>
 </body>
 </html>

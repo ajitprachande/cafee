@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    background-color: brown;
+}
+.footer-logo{
+    margin: 1.5%;
+    padding: 1.5%;
+    text-align: center;
+    border: 1px solid beige;
+    width: 150px;    
+}
+.admin-footer-links {
+    margin-top: 0px;
+    text-align: center;
+}

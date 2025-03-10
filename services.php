@@ -1,9 +1,13 @@
+
+
 <html>
 <head>
 <title></title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
+  	<!-- menu section start -->
+    <?PHP  include("partial/menu.php"); ?>
 <!-- Services Section -->
     <section class="services" id="service">
       <h2 class="section_title">Our Services</h2>
@@ -67,6 +71,8 @@
         </div>
       </div>
     </section>
+     <!-- footer section -->
+ <?PHP  include("partial/footer.php"); ?>
 </body>
 </html>
 	
