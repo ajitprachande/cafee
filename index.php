@@ -1,29 +1,82 @@
 <?php include("partial/menu.php");?>
-<?php include("config/constants.php") ;?>
+<!-- below config file coment  -->
+<?php //include("config/constants.php") ;?>
+
+<?php
+session_start(); // Start the session at the beginning
+if (!isset($_SESSION['login_number'])):
+?>
 <!-- Hero Section -->
-    <section class="hero_section">
-      <div class="section_container">
-        <div class="hero_container">
-          <div class="text_section">
-            <h2 class="typewriter">Fuel Your Passion</h2>
-            <h3>Discover the Magic in Every Cup</h3>
-            <p>
-              Welcome to our coffee paradise, where every bean tells a story and
-              every cup sparks.
-            </p>
+<section class="hero_section">
+  <div class="section_container">
+    <div class="hero_container">
+      <div class="text_section">
+        <h2 class="typewriter">Fuel Your Passion</h2>
+        <h3>Discover the Magic in Every Cup</h3>
+        <p>
+          Welcome to our coffee paradise, where every bean tells a story and
+          every cup sparks.
+        </p>
 
-            <div class="hero_section_button">
-              <a href="login.php"class="button">Log In</a>
-              <a href="contact.php"class="button">Contact</a>
-            </div>
-          </div>
-
-          <div class="image_section">
-            <img src="images/cofffee_image.png" alt="Coffee" />
-          </div>
+        <div class="hero_section_button">
+          <a href="login.php" class="button">Log In</a>
+          <a href="contact.php" class="button">Contact</a>
         </div>
       </div>
-    </section>
+      <div class="image_section">
+      <img src="./images/cofffee_image.png" alt="Coffee" />
+      </div>
+    </div>
+  </div>
+</section>
+<?php
+else:
+  include("partial/order-navigationbar.php");
+?>
+<section class="hero_section">
+  <div class="section_container">
+    <div class="hero_container">
+      <div class="text_section">
+        <div class="logout" style="font-size: 30px; color: var(--secondary-color); margin-bottom:50px;">
+          Welcome: <?php echo htmlspecialchars($_SESSION['login_number']); ?>
+        </div>
+        <h2 class="typewriter">Fuel Your Passion</h2>
+        <h3>Discover the Magic in Every Cup</h3>
+        <p>
+          Welcome to our coffee paradise, where every bean tells a story and
+          every cup sparks.
+        </p>
+
+        <div class="hero_section_button">
+        
+          <a href="index.php?logout" class="button">Logout</a>
+          <?php
+
+            if (isset($_GET['logout'])) {
+                // Unset the login session variable
+                unset($_SESSION['login_number']);
+                
+                // Optionally destroy the entire session
+                session_destroy();
+                
+                // Redirect to the login page (or any page you want)
+                header("Location: index.php");
+                exit();
+            }
+          ?>
+                  <!-- The Logout link on your page -->
+         </div>
+      </div>
+
+      <div class="image_section">
+        <img src="./images/cofffee_image.png" alt="Coffee" />
+      </div>
+    </div>
+  </div>
+</section>
+<?php
+endif;
+?> 
     <!-- Live Chat Button -->
 <div id="chat-button" onclick="toggleChat()">
   <i class="bx bx-message-rounded-dots"></i>
@@ -140,9 +193,10 @@ function getBotResponse(input) {
   // Fallback Response
   return "I'm here to help! Please ask me about our cafe, menu, services, or specialties.";
 }
-   </script> 
-   <!-- chat bot script code end -->
-       <!-- Navbar Section Starts Here -->
+ </script> 
+<!-- chat bot script code end -->
+      
+<!-- Navbar Section Starts Here -->
        <link rel="stylesheet" href="css/style-order.css">
        <section class="navbar">
         <div class="container">
@@ -163,149 +217,138 @@ function getBotResponse(input) {
         </div>
     </section>
     <!-- fOOD sEARCH Section Ends Here -->
+     <!-- below php code order success or fail msg -->
+    <?php 
+        if(isset($_SESSION['order']))
+        {
+          echo $_SESSION['order'];
+          unset($_SESSION['order']);
+        }
+    ?>
 
-    <!-- CAtegories Section Starts Here -->
-    <section class="categories">
-        <div class="container">
-            <h2 class="text-center">Explore Foods</h2>
-            <?php 
-                //create sql query to display categories from d/b
-                $sql = "SELECT * FROM tbl_category WHERE active = 'Yes' AND featured = 'Yes' LIMIT 3";
+    <!-- CAtegories Section Starts Here -->   
+ <?php 
+//session_start(); // Ensure session is started at the top of the file
+?>
+<section class="categories">
+    <div class="container">
+        <h2 class="text-center">Explore Foods</h2>
+        <?php 
+            // Create SQL query to display categories from the database
+            $sql = "SELECT * FROM tbl_category WHERE active = 'Yes' AND featured = 'Yes' LIMIT 3";
+            $res = mysqli_query($conn, $sql);
 
-                $res = mysqli_query($conn, $sql);
-                //count rows to chk whether category is availabe or not
-                $count = mysqli_num_rows($res);
-                //
-                if($count>0)
-                {
-                  //category available
-                  while($row=mysqli_fetch_assoc($res))
-                  {
-                    //get value like id image_name
+            // Count rows to check whether category is available or not
+            $count = mysqli_num_rows($res);
+
+            if($count > 0) {
+                // Category available
+                while($row = mysqli_fetch_assoc($res)) {
+                    // Get values like id, title, and image_name
                     $id = $row['id'];
                     $title = $row['title'];
                     $image_name = $row['image_name'];
                     ?>
-
-                    <a href="<?php echo SITEURL; ?>category-foods.php?category_id=<?php echo $id; ?>">
-                      <div class="box-3 float-container">
-                        <?php
-                        //chk whether img available or not
-                            if($image_name=="")
-                            {
-                              echo "<div class='fail_msg'>Image Not Available.</div>";
-                            }
-                            else
-                            {
-                              ?>
-                                <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name;?>" alt="Pizza" class="img-responsive img-curve">
-                              <?php
-                            }
-                        ?>
-                          <h3 class="float-text text-white"><?php echo $title; ?></h3>
-                      </div>
+                    
+                    <!-- 
+                      The anchor tag's href is conditionally set:
+                      If the user is not logged in (i.e., $_SESSION['login_number'] is not set),
+                      the link will direct to login.php.
+                      Otherwise, it will direct to category-foods.php with the specific category_id.
+                    -->
+                    <a href="<?php echo (!isset($_SESSION['login_number'])) ? SITEURL . 'login.php' : SITEURL . 'category-foods.php?category_id=' . $id; ?>">
+                        <div class="box-3 float-container">
+                            <?php
+                                // Check whether image is available or not
+                                if($image_name == "") {
+                                    echo "<div class='fail_msg'>Image Not Available.</div>";
+                                } else {
+                                    ?>
+                                    <img src="<?php echo SITEURL; ?>images/category/<?php echo $image_name; ?>" alt="<?php echo htmlspecialchars($title); ?>" class="img-responsive img-curve">
+                                    <?php
+                                }
+                            ?>
+                            <h3 class="float-text text-white"><?php echo $title; ?></h3>
+                        </div>
                     </a>
-
                     <?php 
-                  }
                 }
-                else{
-                    //category not available
-                    echo "<div class='fail_msg'>Category Not Added.</div>";
-                }
-            ?>
-
-            
-
-            <div class="clearfix"></div>
-        </div>
-    </section>
+            } else {
+                // Category not available
+                echo "<div class='fail_msg'>Category Not Added.</div>";
+            }
+        ?>
+        <div class="clearfix"></div>
+    </div>
+</section>
     <!-- Categories Section Ends Here -->
     <!-- fOOD MEnu Section Starts Here -->
-    
-    <section class="food-menu">
-        <div class="container">
-            <h2 class="text-center">Food Menu</h2>
-            <?php
-                //getting food from d/b that are active and fetaure
-                $sql2 = "SELECT * FROM tbl_food WHERE active = 'Yes' AND featured = 'Yes' LIMIT 6";
+<section class="food-menu">
+    <div class="container">
+        <h2 class="text-center">Food Menu</h2>
+        <?php
+            // Getting food from the database that are active and featured
+            $sql2 = "SELECT * FROM tbl_food WHERE active = 'Yes' AND featured = 'Yes' LIMIT 6";
+            $res2 = mysqli_query($conn, $sql2);
+            $count2 = mysqli_num_rows($res2);
 
-                $res2 = mysqli_query($conn, $sql2);
+            if($count2 > 0) {
+                while($row = mysqli_fetch_assoc($res2)) {
+                    // Retrieve values from the database
+                    $id = $row['id'];
+                    $title = $row['title'];
+                    $price = $row['price'];
+                    $description = $row['description'];
+                    $image_name = $row['image_name'];
+                    ?>
 
-                $count2 = mysqli_num_rows($res2);
+                    <div class="food-menu-box">
+                        <div class="food-menu-img">
+                            <?php 
+                                if($image_name == "") {
+                                    // Image not available
+                                    echo "<div class='fail_msg'>Image Not Available.</div>";
+                                } else {
+                                    // Image is available
+                                    ?>
+                                    <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="<?php echo htmlspecialchars($title); ?>" class="img-responsive img-curve">
+                                    <?php
+                                }
+                            ?>  
+                        </div>
 
-                if($count2>0)
-                {
-                  while($row=mysqli_fetch_assoc($res2))
-                  {
-                      $id = $row['id'];
-                      $title = $row['title'];
-                      $price = $row['price'];
-                      $description = $row['description'];
-                      $image_name = $row['image_name'];
-                      ?>
-
-                      <div class="food-menu-box">
-                       <div class="food-menu-img">
-                        <?php 
-                          if($image_name=="")
-                          {
-                            //img not avilable
-                            echo "<div class='fail_msg'>Image Not Available.</div>";
-                          }
-                          else{
-                            //img available
-                            ?>
-                             <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name;?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
-
-                            <?php
-                          }
-                          
-
-                        
-                        ?>  
+                        <div class="food-menu-desc">
+                            <h4><?php echo $title; ?></h4>
+                            <p class="food-price">₹<?php echo $price; ?></p>
+                            <p class="food-detail">
+                                <?php echo $description; ?>
+                            </p>
+                            <br>
+                            <!-- 
+                              Conditionally set the link based on the user's login status:
+                              If not logged in, direct to login.php, otherwise to order.php with food_id.
+                            -->
+                            <a href="<?php echo (!isset($_SESSION['login_number'])) ? SITEURL . 'login.php' : SITEURL . 'order.php?food_id=' . $id; ?>" class="btn btn-primary">Order Now</a>
+                        </div>
                     </div>
 
-                               <div class="food-menu-desc">
-                                 <h4><?php echo $title; ?></h4>
-                                   <p class="food-price">$<?php echo $price; ?></p>
-                                     <p class="food-detail">
-                                       <?php echo $description; ?>
-                                    </p>
-                                     <br>
-
-                                      <a href="order.html" class="btn btn-primary">Order Now</a>
-                                 </div>
-                       </div>
-
-
-                      <?php
-
-                  }
-
+                    <?php
                 }
-                else
-                {
-                  //food not available
-                  echo "<div class='fail_msg'>Food Not Available.</div>";
-                }
+            } else {
+                // Food not available
+                echo "<div class='fail_msg'>Food Not Available.</div>";
+            }
+        ?>
+        <div class="clearfix"></div>
+    </div>
+    <p class="text-center">
+        <a href="foods.php">See All Foods</a> 
+    </p>
+</section>
 
-
-            ?>
-
-
-
-            <div class="clearfix"></div>
-
-        </div>
-
-        <p class="text-center">
-            <a href="#">See All Foods</a>
-        </p>
-    </section>
     <!-- fOOD Menu Section Ends Here -->
 
   </body>
 </html>
 
-<?php include("partial/footer.php");?>
+<?php include("partial/footeredit.php");?>

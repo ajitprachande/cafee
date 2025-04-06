@@ -17,7 +17,7 @@
             header('location:'.SITEURL.'Admin/manage-admin.php');
     }else{
             //echo "failed to delete admin";
-            $_SESSION['delete'] = "<div class='fail-msg'>FAiled to delete admin, Try again later.</div>";
+            $_SESSION['delete'] = "<div class='fail-msg'>Failed to Delete Admin, Try again later.</div>";
             header('location:'.SITEURL.'Admin/manage-admin.php');
     }
     //3. redirect to admin page with msg (success/failed)

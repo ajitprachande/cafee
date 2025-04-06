@@ -1,8 +1,9 @@
 <?php
-       require("lib/adminConnection.php");
+     require("lib/adminConnection.php");
 ?>
 <html>
 <head>
+<link rel="icon" type="image/png" href="images/cofffee_image.png">
 <title>Sign In</title> 
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 

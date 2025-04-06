@@ -25,10 +25,19 @@
           <div class="gallery_items">
             <img src="images/gallery_6.jpg" alt="Gallery Image" />
           </div>
+          <div class="gallery_items">
+            <img src="images/menu-pizza.jpg" alt="Gallery Image">
+          </div>
+          <div class="gallery_items">
+            <img src="images/coffee1.jpg" alt="Gallery Image">
+          </div>
+          <div class="gallery_items">
+            <img src="images/cofffee_image.png" alt="Gallery Image">
+          </div>
         </div>
       </div>
     </section>
      <!-- footer section -->
- <?PHP  include("partial/footer.php"); ?>
+     <?php include("partial/footeredit.php");?>
 </body>
 </html>	

@@ -68,7 +68,7 @@ if(isset($_POST['submit_btn']))
                 <label for="email">Your Email</label>
                 <input
                   type="text"
-				  name="email"
+				          name="email"
                   id="email"
                   placeholder="Your Email"
                   required
@@ -104,8 +104,10 @@ if(isset($_POST['submit_btn']))
                   placeholder="Your Message"
                 ></textarea>
               </div>
-
+                <div class="buttons">
               <button type="submit" class="button" name="submit_btn" id="submit_btn">Submit</button>
+              <a href="login.php"class="">already have an acc?</a>
+              </div>
             </form>
           </div>
 

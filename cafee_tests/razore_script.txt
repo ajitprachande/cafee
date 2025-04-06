@@ -1,0 +1,41 @@
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+      document.getElementById('rzp-button1').onclick = function(e) {
+          e.preventDefault();
+          // Retrieve quantity from the form
+          var qty = document.querySelector("input[name='qty']").value;
+          // Use PHP variable for price (make sure it is a valid number)
+          var price = <?php echo $price; ?>;
+          var total = qty * price; // Total amount in INR
+
+          // Retrieve customer details for pre-filling Razorpay checkout
+          var fullName = document.querySelector("input[name='full-name']").value;
+          var email = document.querySelector("input[name='email']").value;
+          var contact = document.querySelector("input[name='contact']").value;
+
+          var options = {
+              "key": "YOUR_RAZORPAY_KEY", // Replace with your Razorpay key
+              "amount": total * 100, // Amount in paisa (e.g., ₹100 = 10000 paisa)
+              "currency": "INR",
+              "name": "<?php echo addslashes($title); ?>",
+              "description": "Order Payment",
+              "image": "<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>",
+              "handler": function (response){
+                  // Payment successful callback
+                  alert("Payment Successful. Payment ID: " + response.razorpay_payment_id);
+                  // Optionally, submit the form to record the order in your database
+                  document.querySelector("form.order").submit();
+              },
+              "prefill": {
+                  "name": fullName,
+                  "email": email,
+                  "contact": contact
+              },
+              "theme": {
+                  "color": "#F37254"
+              }
+          };
+          var rzp1 = new Razorpay(options);
+          rzp1.open();
+      }
+    </script>

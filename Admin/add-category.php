@@ -32,17 +32,21 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Feaured:</td>
+                        <td>Featured:</td>
                         <td>
-                            <input type="radio" name="featured" value="Yes">YES
-                            <input type="radio" name="featured" value="No">NO
+                            <input type="radio" name="featured" value="Yes" id="featured-yes">
+                            <label for="featured-yes">YES</label>
+                            <input type="radio" name="featured" value="No" id="featured-no">
+                            <label for="featured-no">NO</label>
                         </td>
                     </tr>
                     <tr>
                         <td>Active:</td>
                         <td>
-                            <input type="radio" name="active" value="Yes">YES
-                            <input type="radio" name="active" value="No">NO
+                            <input type="radio" name="active" value="Yes" id="active-yes">
+                            <label for="active-yes">YES</label>
+                            <input type="radio" name="active" value="No" id="active-no">
+                            <label for="active-no">NO</label>
                         </td>
                     </tr>
                     <tr>

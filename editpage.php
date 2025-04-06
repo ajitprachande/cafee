@@ -1,9 +1,6 @@
-
- <?PHP  include("partial/menu.php"); ?>
 <?php
       require_once('lib/function.php');
-       $db = new db_functions();
-	   
+      $db = new db_functions();
 	   
 	   if(isset($_GET['edit_id']))
 	   {
@@ -20,12 +17,12 @@
 	   if(isset($_POST['submit_btn']))
 	   {
 		  $var_name = $_POST['name'];
-          $var_email = $_POST['email'];
-          $var_number = $_POST['number'];
+      $var_email = $_POST['email'];
+      $var_number = $_POST['number'];
 		  $var_password = $_POST['password'];
-          $var_textarea = $_POST['textarea'];
+      $var_textarea = $_POST['textarea'];
 		  
-          if($db->update_user_record($var_name,$var_email,$var_number,$var_password,$var_textarea,$var_edit_id))
+      if($db->update_user_record($var_name,$var_email,$var_number,$var_password,$var_textarea,$var_edit_id))
 		  {
 			  $flag = 1;
 		  }
@@ -41,7 +38,7 @@
 	   
 	   if(!empty($user_record_data))
 	   {
-		     $res_id = $user_record_data[0];
+		  $res_id = $user_record_data[0];
 			 $res_name = $user_record_data[1];
 			 $res_email = $user_record_data[2];
 			 $res_number = $user_record_data[3];
@@ -76,33 +73,7 @@
 	        	}			
 	    ?>
       <!-- menu section start -->
-      <header>
-      <nav>
-        <div class="nav_logo">
-          <a href="#">
-            <img src="images/logo.webp" alt="Coffee Logo" />
-            <h2> Bachelore's Cafee</h2>
-          </a>
-        </div>
-
-        <input type="checkbox" id="click" />
-        <label for="click">
-          <i class="menu_btn bx bx-menu"></i>
-          <i class="close_btn bx bx-x"></i>
-        </label>
-
-        <ul>
-          <li><a href="index.php">Home</a></li>
-          <li><a href="about.php">About</a></li>
-          <li><a href="services.php">Services</a></li>
-          <li><a href="why.php">Why Us</a></li>
-          <li><a href="gallery.php">Gallery</a></li>
-          <li><a href="admin_login.php">Report</a></li>
-        </ul>
-      </nav>
-    </header>
-
-       <!-- menu section end -->
+      <!-- menu section end -->
 	  
       <div class="section_container">
         <div class="contact_container">
@@ -116,8 +87,8 @@
                 <label for="email">Your Email</label>
                 <input
                   type="text"
-				  name="email"
-                  id="email"
+				          name="email"
+                   id="email"
                   placeholder="Your Email"
                   required value="<?php echo $res_email; ?>"
                 />
@@ -126,18 +97,18 @@
                 <label for="number">Your Number</label>
                 <input
                   type="number"
-				  name="number"
+				          name="number"
                   id="number"
                   placeholder="Your Contact Number"
                   required value="<?php echo $res_number; ?>"
                 />
 			
               </div>
-			   <div class="field">
+			        <div class="field">
                 <label for="password">Your password</label>
                 <input
                   type="password"
-				  name="password"
+				          name="password"
                   id="password"
                   placeholder="Your password"
                   required value="<?php echo $res_password; ?>"
@@ -151,8 +122,8 @@
                   name="textarea"
                   id="textarea"
                   placeholder="Your Message" 
-				  required 
-				  value="<?php echo $res_textarea; ?>"
+				          required 
+				          value="<?php echo $res_textarea; ?>"
                 ><?php echo $res_textarea; ?></textarea>
 				
               </div>
@@ -195,6 +166,5 @@
       </div>
     </section>
      <!-- footer section -->
- <?PHP  include("partial/footer.php"); ?>
 </body>
 </html>

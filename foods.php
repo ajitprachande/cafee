@@ -1,7 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="icon" type="image/png" href="images/cofffee_image.png">
     <meta charset="UTF-8">
     <!-- Important to make website responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,7 +65,7 @@
                                     else{
                                         //img availble
                                         ?>
-                                         <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                                         <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="<?php echo $title; ?>" class="img-responsive img-curve">
                                         <?php
                                     }
                                 
@@ -81,7 +81,7 @@
                                 </p>
                                 <br>
 
-                                <a href="#" class="btn btn-primary">Order Now</a>
+                                <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
                             </div>
                      </div>
                         <?php
@@ -101,7 +101,7 @@
    
 
     <!-- footer Section Starts Here -->
-    <?php include("partial/footer.php"); ?>
+    <?php include("partial/footeredit.php");?>
     <!-- footer Section Ends Here -->
 
 </body>

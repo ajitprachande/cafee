@@ -36,7 +36,8 @@
 		$_SESSION['login_number'] =  $var_number;
 		
 		//auto redirect to next page
-		header("location:dashboard.php");
+		//edited code redirect to index.pho
+		header("location:index.php");
 		
 	  }
 	  else
@@ -76,32 +77,9 @@
 </style>
 </head>
 <body>
-	<!-- menu section start -->
-	<header>
-      <nav>
-        <div class="nav_logo">
-          <a href="#">
-            <img src="images/logo.webp" alt="Coffee Logo" />
-            <h2> Bachelore's Cafee</h2>
-          </a>
-        </div>
+<!-- menu section start -->
+	
 
-        <input type="checkbox" id="click" />
-        <label for="click">
-          <i class="menu_btn bx bx-menu"></i>
-          <i class="close_btn bx bx-x"></i>
-        </label>
-
-        <ul>
-          <li><a href="index.php">Home</a></li>
-          <li><a href="about.php">About</a></li>
-          <li><a href="services.php">Services</a></li>
-          <li><a href="why.php">Why Us</a></li>
-          <li><a href="gallery.php">Gallery</a></li>
-          <li><a href="admin_login.php">Report</a></li>
-        </ul>
-      </nav>
-    </header>
 <!-- menu section end -->
 		
  <!-- Contact Section -->
@@ -190,8 +168,12 @@
                 />
 			
               </div>
-              <button class="button" name="submit_btn" id="submit_btn">Log In</button>
-            </form>
+			  <div class="buttons" style="display: flex; gap: 60%;">
+				<button class="button" name="submit_btn" id="submit_btn">Log In</button>
+				<a href="contact.php"class="button">New To Cafee?</a>
+			  </div>
+             </form>
+			  
 			
           </div>
 		</div>
@@ -209,7 +191,6 @@
 				 if(var_user_captcha==var_original_captcha)
 				 {
 					 $("#user_captcha").css("background-color","#C8EFD4");
-					 
 				 }
 				 else
 				 {

@@ -1,19 +1,6 @@
 /* Importing Google font - Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-    background: var(--primary-color);
-}
 /* whole admin folder admin css code BELOW */
 .wrapper{
     padding: 1%;
@@ -105,15 +92,14 @@ table tr td{
     height: 11%;
 }
 
-/* add admin page css code start here */
-/* add admin page css code end here */
+
 /* CSS for MAIN CONTENT */
 .main-content{
+    width: 100%;
     background-color: #f1f2f6;
     padding: 3% 0%;
     margin-top: 5%; 
-    /* height: 1000px; */
-    min-height:800px;
+     min-height:650px;
 }
 .col-4{
     text-align: center;
@@ -123,7 +109,324 @@ table tr td{
     padding: 2%;
     float: left;
 }
+/* chatgpt manage-order code below */
+.main-section body{
+    font-family: 'Arial', sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    min-height: 600px;
+    width: 100%;
+}
+
+/* Main Section Styling */
+.main-section {
+    min-height: 750px;
+    margin: 40px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Apply the same heading style to main-section as main-content */
+.main-section h1 {
+    color: #384c6a;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.main-section h1:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #4b6584, #a5b1c2);
+    border-radius: 2px;
+}
+
+/* Content Section in main-section */
+.content {
+    padding: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+/* Table Styling for all tables */
+.manage-order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+} 
+
+/* Table Header */
+.manage-order-table th {
+    background: #4b6584;
+    color: white;
+    padding: 15px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+/* Table Rows */
+.manage-order-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Alternating Row Colors */
+.manage-order-table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+/* Hover Effect */
+.manage-order-table tr:hover {
+    background: #f0f4f8;
+    transition: all 0.2s ease;
+}
+
+/* Style the buttons consistently across all admin pages */
+.btn-primary, .btn-update, .btn-delete {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-primary:hover, .btn-update:hover, .btn-delete:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: #4b6584;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #384c6a;
+}
+
+.btn-update {
+    background-color: #7bed9f;
+    color: #2c3e50;
+}
+
+.btn-update:hover {
+    background-color: #2ed573;
+}
+
+.btn-delete {
+    background-color: #ff6b81;
+    color: #2c3e50;
+}
+
+.btn-delete:hover {
+    background-color: #ff4757;
+}
 
 /* footer css code */
+
+/* Form styling for Admin pages */
+.tbl-30 {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px 0;
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tbl-30 td {
+    padding: 12px 15px;
+    vertical-align: top;
+}
+
+.tbl-30 td:first-child {
+    font-weight: 600;
+    width: 30%;
+    color: #333;
+}
+
+.tbl-30 input[type="text"],
+.tbl-30 input[type="password"],
+.tbl-30 input[type="number"],
+.tbl-30 textarea,
+.tbl-30 select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    transition: all 0.3s;
+}
+
+.tbl-30 input[type="text"]:focus,
+.tbl-30 input[type="password"]:focus,
+.tbl-30 input[type="number"]:focus,
+.tbl-30 textarea:focus,
+.tbl-30 select:focus {
+    border-color: #4b6584;
+    box-shadow: 0 0 5px rgba(75, 101, 132, 0.3);
+    outline: none;
+}
+
+.tbl-30 textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.tbl-30 input[type="radio"] {
+    margin-right: 5px;
+    transform: scale(1.2);
+}
+
+.tbl-30 label {
+    margin-right: 20px;
+    cursor: pointer;
+    font-weight: normal;
+    display: inline-block;
+}
+
+.tbl-30 input[type="file"] {
+    border: 1px dashed #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #f8f9fa;
+    cursor: pointer;
+}
+
+.tbl-30 input[type="file"]:hover {
+    background-color: #e9ecef;
+}
+
+.tbl-30 input[type="submit"] {
+    margin-top: 10px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4b6584;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: auto;
+}
+
+.tbl-30 input[type="submit"]:hover {
+    background-color: #384c6a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the form headings */
+.main-content h1 {
+    color: #384c6a;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.main-content h1:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #4b6584, #a5b1c2);
+    border-radius: 2px;
+}
+
+/* Form wrapper styling */
+.wrapper {
+    padding: 30px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Custom styling for different types of forms */
+form {
+    position: relative;
+}
+
+/* Style for success and error messages */
+.success-msg, .fail-msg {
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+/* Select dropdown styling */
+.tbl-30 select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="6"><path d="M0 0l6 6 6-6z" fill="%23333"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 30px;
+}
+
+/* Placeholder styling */
+::placeholder {
+    color: #aaa;
+    opacity: 1;
+}
+
+/* Main section shadow */
+.main-content {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Additional animation for submit button */
+.tbl-30 input[type="submit"] {
+    position: relative;
+    overflow: hidden;
+}
+
+.tbl-30 input[type="submit"]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: all 0.5s;
+}
+
+.tbl-30 input[type="submit"]:hover::after {
+    left: 100%;
+}
 
 

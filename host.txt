@@ -1,0 +1,29 @@
+####config/constants.php
+<?php 
+//session start 
+session_start();
+//create constants to store non repeting values
+    define('SITEURL','http://localhost/cafee/');
+    define('LOCALHOST','sql113.infinityfree.com');
+    define('DB_USERNAME', 'if0_38548939');
+    define('DB_PASSWORD', 'Ajitprachande');
+    define('DB_NAME', "if0_38548939_bachelors_cafee");
+    
+         
+ $conn = mysqli_connect(LOCALHOST,DB_USERNAME,DB_PASSWORD) or die(mysqli_error()); //d/b connection
+ $db_select = mysqli_select_db($conn,DB_NAME) or die(mysqli_error()); //selecting d/b
+?>
+
+
+####function.php
+$this->con = mysqli_connect("sql113.infinityfree.com","if0_38548939","Ajitprachande","if0_38548939_bachelors_cafee");
+
+#####adminconnection.php
+<?php 
+    session_start();
+    $con = 	mysqli_connect("sql113.infinityfree.com","if0_38548939","Ajitprachande","if0_38548939_bachelors_cafee");
+	if(mysqli_connect_error())
+	{
+		echo "cannot connect";
+	}
+?>

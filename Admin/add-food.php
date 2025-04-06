@@ -25,13 +25,13 @@ ob_start();
                 <tr>
                     <td>Description:</td>
                     <td>
-                        <textarea name="description" cols="30" rows="6" placeholder="description of the food"></textarea>
+                        <textarea name="description" cols="30" rows="6" placeholder="Description of the food"></textarea>
                     </td>
                 </tr>
                 <tr>
                     <td>Price:</td>
                     <td>
-                        <input type="number" name="price" >
+                        <input type="number" name="price" placeholder="Price in INR">
                     </td>
                 </tr>
                 <tr>
@@ -84,15 +84,19 @@ ob_start();
                 <tr>
                     <td>Featured:</td>
                     <td>
-                        <input type="radio" name="featured" value="Yes">Yes
-                        <input type="radio" name="featured" value="No">NO
+                        <input type="radio" name="featured" value="Yes" id="featured-yes">
+                        <label for="featured-yes">Yes</label>
+                        <input type="radio" name="featured" value="No" id="featured-no">
+                        <label for="featured-no">No</label>
                     </td>
                 </tr>
                 <tr>
                     <td>Active:</td>
                      <td>
-                        <input type="radio" name="active" value="Yes">Yes
-                        <input type="radio" name="active" value="No">NO
+                        <input type="radio" name="active" value="Yes" id="active-yes">
+                        <label for="active-yes">Yes</label>
+                        <input type="radio" name="active" value="No" id="active-no">
+                        <label for="active-no">No</label>
                     </td>
                 </tr>
                 <tr>

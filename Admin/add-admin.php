@@ -3,7 +3,7 @@
 <div class="main-content">
     <div class="wrapper">
         <h1>Add Admin</h1><br><br>
-        <?php 
+        <?php   
             if(isset($_SESSION['add']))//chk whether the session is set or not
             {
                 echo $_SESSION['add'];//displaying session msg if set
@@ -12,30 +12,31 @@
         ?>
 
         <form action="#" method="POST">
-             <table class="tbl-30">
+              <table class="tbl-30">
                 <tr>
                     <td>Full name:</td>
-                    <td><input type="text" name="full_name" placeholder="enter your name"></td>
+                    <td><input type="text" name="full_name" placeholder="Enter your name"></td>
                 </tr>
                 <tr>
                     <td>Username:</td>
-                    <td><input type="text" name="username" placeholder="enter username"></td>
+                    <td><input type="text" name="username" placeholder="Enter username"></td>
                 </tr>
                 <tr>
                     <td>Password:</td>
-                    <td><input type="password" name="password" placeholder="enterpassword"></td>
+                    <td><input type="password" name="password" placeholder="Enter password"></td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name="submit" value="Add admin" class="btn-update">
+                        <input type="submit" name="submit" value="Add Admin" class="btn-update">
                     </td>
                 </tr>
-             </table>
+             </table> 
         </form>
     </div>
 </div>
 
 <?php include('partials/footer.php'); ?>
+<!-- password toogle script code -->
 
 <?php
 //process the value from Form and save itin D/B
@@ -74,7 +75,5 @@ if(isset($_POST['submit'])){
      header("location:".SITEURL.'add-admin.php');
  
    }
-
-
 }
 ?>

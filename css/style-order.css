@@ -1,18 +1,29 @@
-
-
 /* CSS for All */
-*{
-    margin: 0 0;
-    padding: 0 0;
-    font-family: Arial, Helvetica, sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+  }
+body {
+    min-height: 100%;
+    overflow-x: hidden;
 }
 .container{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     padding: 1%;
 }
 .img-responsive{
     width: 100%;
+    height: auto;
+    display: block;
 }
 .img-curve{
     border-radius: 15px;
@@ -39,6 +50,7 @@
 a{
     color: #ff6b81;
     text-decoration: none;
+    display: inline-block; /* For better touch targets */
 }
 a:hover{
     color: #ff4757;
@@ -49,6 +61,10 @@ a:hover{
     border: none;
     font-size: 1rem;
     border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    min-height: 44px; /* Minimum touch target size */
+    min-width: 44px;
 }
 .btn-primary{
     background-color: #ff6b81;
@@ -101,6 +117,14 @@ fieldset{
     padding: 1%;
     font-weight: bold;
 }
+header{
+    height: 11.5%;
+}
+nav .nav_logo h2 {
+    color: var(--white-color);
+    font-weight: 600;
+    font-size: 32px;
+  }
 
 
 /* CSS for Food SEarch Section */
@@ -119,20 +143,31 @@ fieldset{
     font-size: 1rem;
     border: none;
     border-radius: 5px;
+    min-height: 44px;
 }
-
 
 /* CSS for Categories */
+ .categories .container h1{
+    margin-top: 50px;
+    font-weight: bolder;
+    font-size: large;   
+}
 .categories{
     padding: 4% 0;
-}
-
+} 
 .box-3{
-    width: 28%;
+    width: 25%;
+    height: 20%;
     float: left;
     margin: 2%;
+    align-items: center;
 }
-
+.categories img{
+    transition: transform 0.4s ease;
+}
+.categories img:hover{
+     transform: scale(1.1); 
+}
 
 /* CSS for Food Menu */
 .food-menu{
@@ -166,6 +201,7 @@ fieldset{
 .food-detail{
     font-size: 1rem;
     color: #747d8c;
+    line-height: 1.4;
 }
 
 
@@ -190,10 +226,12 @@ fieldset{
     border: none;
     border-radius: 5px;
     font-size: 1rem;
+    min-height: 44px; /* Minimum touch target size */
 }
 .order-label{
     margin-bottom: 1%; 
     font-weight: bold;
+    display: block;
 }
 .success_msg
 {
@@ -205,6 +243,7 @@ fieldset{
 	font-family: "Poppins", sans-serif;
 	font-size:25px;
 	margin-bottom:25px;
+    border-radius: 8px;
 }
 .fail_msg
 {
@@ -216,11 +255,27 @@ fieldset{
 	font-family: "Poppins", sans-serif;
 	font-size:25px;
 	margin-bottom:25px;
+    border-radius: 8px;
 }
 
 
 
 /* CSS for Mobile Size or Smaller Screen */
+
+@media only screen and (max-width:1024px){
+    .food-menu-box {
+        width: 45%;
+        padding: 3%;
+    }
+    
+    .box-3 {
+        width: 46%;
+    }
+    
+    .order {
+        width: 70%;
+    }
+}
 
 @media only screen and (max-width:768px){
     .logo{
@@ -232,7 +287,18 @@ fieldset{
     .menu ul{
         text-align: center;
     }
-
+    
+    .food-menu-box {
+        width: 95%;
+        padding: 4%;
+        margin-bottom: 30px;
+    }
+    
+    .box-3 {
+        width: 95%;
+        margin: 4% auto;
+    }
+    
     .food-search input[type="search"]{
         width: 90%;
         padding: 2%;
@@ -240,8 +306,10 @@ fieldset{
     }
 
     .btn{
-        width: 91%;
+        width: 90%;
         padding: 2%;
+        font-size: 1rem;
+        min-height: 44px;
     }
 
     .food-search{
@@ -268,10 +336,127 @@ fieldset{
         padding: 5%;
         margin-bottom: 5%;
     }
+    
+    .food-menu-img {
+        width: 30%;
+    }
+    
+    .food-menu-desc {
+        width: 65%;
+        margin-left: 5%;
+    }
+    
     .social{
         padding: 5% 0;
     }
     .order{
         width: 100%;
+    }
+    
+    .input-responsive {
+        width: 100%;
+        min-height: 44px;
+    }
+}
+
+@media only screen and (max-width:576px){
+    body {
+        font-size: 15px;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    .food-menu-img {
+        width: 100%;
+        float: none;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    
+    .food-menu-desc {
+        width: 100%;
+        float: none;
+        margin-left: 0;
+    }
+    
+    .food-price {
+        font-size: 1.1rem;
+        margin: 4% 0;
+    }
+    
+    .food-detail {
+        font-size: 0.9rem;
+    }
+    
+    .btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .order-label {
+        margin-bottom: 2%;
+        font-size: 0.9rem;
+    }
+    
+    fieldset {
+        margin: 3%;
+        padding: 4%;
+    }
+    
+    .success_msg, .fail_msg {
+        font-size: 18px;
+        padding: 10px;
+        width: 90%;
+        margin: 0 auto 20px;
+    }
+    
+    /* Touch targets */
+    a, button, .btn, input[type="submit"] {
+        min-height: 44px;
+        padding: 10px;
+    }
+    
+    input, select, textarea {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+        min-height: 44px;
+    }
+}
+
+@media only screen and (max-width:380px){
+    .food-price {
+        font-size: 1rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.2rem;
+    }
+    
+    .food-detail {
+        font-size: 0.85rem;
+    }
+    
+    .btn {
+        font-size: 0.85rem;
+    }
+    
+    .success_msg, .fail_msg {
+        font-size: 16px;
+    }
+    
+    .food-menu-box {
+        padding: 15px;
     }
 }

@@ -41,6 +41,6 @@
       </div>
     </section>
      <!-- footer section -->
- <?PHP  include("partial/footer.php"); ?>
+     <?php include("partial/footeredit.php");?>
 </body>
 </html>

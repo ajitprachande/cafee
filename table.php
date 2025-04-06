@@ -1,11 +1,11 @@
-<?PHP  include("partial/menu.php"); ?>
+<?php include("partial/menu.php"); ?>
 <?php
-     session_start();
-	 if(!isset($_SESSION['AdminLoginId']))
-	 {
-		 header("location: admin_login.php");
-	 }
-?>
+            session_start();
+            if(!isset($_SESSION['AdminLoginId']))
+            {
+                header("location:admin_login.php");
+            }
+        ?>
 <?php
       require_once('lib/function.php');
        $db = new db_functions();
@@ -34,82 +34,84 @@
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
 <style>
-.deleted_msg
-{
-	padding:10px;
-	width:400px;
-	margin:auto;
-	text-align:center;
-	background-color:#C8EFD4;
-	font-family:cambria;
-	font-size:25px;
-	color:#333333;
-	margin-bottom:25px;
-	margin-top:25px;
-	border-radius:5px;
-}
-.not_delete_msg
-{
-	padding:15px;
-	width:450px;
-	margin:auto;
-	text-align:center;
-	background-color:#FBCFD0;
-	font-family:cambria;
-	font-size:25px;
-	color:#333333;
-	margin-bottom:20px;
-	margin-top:20px;
-	border-radius:5px;
-}
-.table_body{
-	background: var(--light-gray-color);
-	margin-top: 2%;
-	min-height:800px;
-	border:1px solid;		
-}
-.table_head
-{
-	width: 100%;
-	height: 80px;
-	display:flex; 
-	justify-content: space-between;
-	align-items: center;
-	border:1px solid;
-	margin-bottom:10px;	
-}
-.table_head h1{
-	text-align: center;
-	margin-left: 17%;
-}
-.table_head button{
-	font-size: 18px;
-	font-weight: 550;
-	padding: 8px 13px;
-	border-radius: 10px;
-	margin-right: 10px;
-	border: 1px solid #f2f2f2;
-}
-.table_head button:hover{
-	color: black;
-	background-color: #f3961c;
-	border-radius: 10px;
-}
+		.deleted_msg
+		{
+			padding:10px;
+			width:400px;
+			margin:auto;
+			text-align:center;
+			background-color:#C8EFD4;
+			font-family:cambria;
+			font-size:25px;
+			color:#333333;
+			margin-bottom:25px;
+			margin-top:25px;
+			border-radius:5px;
+		}
+		.not_delete_msg
+		{
+			padding:15px;
+			width:450px;
+			margin:auto;
+			text-align:center;
+			background-color:#FBCFD0;
+			font-family:cambria;
+			font-size:25px;
+			color:#333333;
+			margin-bottom:20px;
+			margin-top:20px;
+			border-radius:5px;
+		}
+		.table_body{
+			background: var(--light-gray-color);
+			margin-top: 2%; 
+			min-height:800px;
+			border:1px solid;		
+		}
+		.table_head
+		{
+			width: 100%;
+			height: 80px;	
+			display:flex; 
+			justify-content: space-between;
+			align-items: center;
+			border:1px solid;
+			margin-bottom:10px;	
+		}
+		.table_head h1{
+			
+			text-align: center;
+			margin-left: 17%;
+		}
+		.table_head button{
+			font-size: 18px;
+			font-weight: 550;
+			padding: 8px 13px;
+			border-radius: 10px;
+			margin-right: 10px;
+			border: 1px solid #f2f2f2;
+		}
+		.table_head button:hover{
+			color: black;
+			background-color: #f3961c;
+			border-radius: 10px;
+		}
 </style>
 </head>
 	<body>
 	<div class="table_body">
-
-		<div class="table_head"><h1>Welcome To Cafee Contact Report Admin - <?php echo $_SESSION['AdminLoginId']; ?></h1>
-				<form method="post">
-				<button class="button" name="logout">Logout</button>
-				</form>
-		</div>
-			<?php
+		<div class="table_head">
+			<h1>Welcome To Cafee Contact Report-Admin <?php echo $_SESSION['AdminLoginId']; ?>
+		     </h1>
+			 <form method="POST">
+                        <button class="button" name="logout">Logout</button>
+                </form>
+        	</div>
+		<?php
 				if(isset($_POST['logout']))
 				{
 					session_destroy();
-					header("location:admin_login.php");	
+					header("location:admin_login.php");		
 				}
 			?>
 			<?php 
@@ -200,6 +202,5 @@
 		</table>
 	</div>
 	<!-- footer section -->
-		<?PHP  include("partial/footer.php"); ?>
 	</body>
 </html>

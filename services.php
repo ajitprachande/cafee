@@ -1,5 +1,16 @@
+<?php
 
+  require_once('lib/function.php');
+  $db = new db_functions();
+ // echo $_SESSION['login_number'];
 
+ //session_start(); // Start session to access session variables
+// Check if the session key exists before using it
+if (!isset($_SESSION['login_number'])) {
+    header("Location: login.php"); // Redirect to login page if not logged in
+    exit;
+}
+?>
 <html>
 <head>
 <title></title>
@@ -7,7 +18,7 @@
 </head>
 <body>
   	<!-- menu section start -->
-    <?PHP  include("partial/menu.php"); ?>
+    <?PHP  include("partial/order-navigationbar.php"); ?>
 <!-- Services Section -->
     <section class="services" id="service">
       <h2 class="section_title">Our Services</h2>
@@ -72,7 +83,7 @@
       </div>
     </section>
      <!-- footer section -->
- <?PHP  include("partial/footer.php"); ?>
+     <?php include("partial/footeredit.php");?>
 </body>
 </html>
 	
